@@ -1,3 +1,4 @@
+
 .vscode/
 Tutorial/.venv/
-Tutorial/poetry.lock
+*.lock
