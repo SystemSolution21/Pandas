@@ -14,7 +14,7 @@ def main():
     # Pandas read csv file
     print("-----Pandas read csv file-----")
     data = pd.read_csv(csv_file)
-    print(data.head())
+    print(data.to_string())
 
 if __name__ == "__name__":
     main()
