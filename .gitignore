@@ -1,4 +1,8 @@
-
+### Ignore VSCode folder
 .vscode/
+### Ignore Virtural Environment
 Tutorial/.venv/
+### Ignore Poetry Lock file
 poetry.lock
+### Ignore Python Pycache folder
+__Pycache__/
