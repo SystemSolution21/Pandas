@@ -5,15 +5,15 @@ def main() -> None:
     
     print("#Create Pandas Series")
     list_series: list[int] = [1, 3, 2]
-    ds: pd.Series = pd.Series(list_series)
-    print(ds)
+    ps: pd.Series = pd.Series(list_series)
+    print(ps)
 
     print("#Add index labels")
-    index_label: list[str] = ["x", "y", "z"]
-    ds: pd.Series = pd.Series(list_series, index = index_label)
-    print(ds)
+    index_label: pd.Index = pd.Index(["x", "y", "z"])
+    ps.index = index_label
+    print(ps)
     print("# 'Y' index data")
-    print(ds["y"])
+    print(ps["y"])
 
     print("#Create Pandas Series using Dictionary")
     dict_data: dict[str, int] = {"day1": 420,

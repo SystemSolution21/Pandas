@@ -15,7 +15,7 @@ def main():
     df.index = index_range
     print(df)
 
-    print("# Locate row data using")
+    print("# Locate row data using loc[]")
     print(df.loc[1])
 
     print("# Locate index list to return Pandas Series")
@@ -27,7 +27,7 @@ def main():
     print(df)
 
     print("# Add custom index")
-    custom_index = pd.Index([f'Day{i+1}' for i in range(len(df))])
+    custom_index: pd.Index = pd.Index([f'Day{i+1}' for i in range(len(df))])
     df.index = custom_index
     print(df)
 
