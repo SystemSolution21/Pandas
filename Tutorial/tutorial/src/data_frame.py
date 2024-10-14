@@ -4,22 +4,33 @@ import pandas as pd
 def main():        
 
     # Pandas DataFrame
-    print("-----Pandas DataFrame-----")
-    data_dict: dict = {"calories":[420, 380, 390],
-                "duration":[50, 40, 45]}
-    df = pd.DataFrame(data_dict)
+    print("# Pandas DataFrame")
+    data_dict: dict[str, list[int]] = {"calories":[420, 380, 390],
+                        "duration":[50, 40, 45]}
+    df: pd.DataFrame = pd.DataFrame(data_dict)
     print(df)
 
-    print("# Using .loc[] to refer row index")
-    print(df.loc[0])
-
-    print("# Using list index, return Pandas Series")
-    print(df.loc[[0, 1]])
-
-    print("# Add list names to give each row name")
-    row_names: list[str] = ["day1", "day2", "day3"]
-    df = pd.DataFrame(data_dict, index=row_names)
+    print("# Add index range")
+    index_range: pd.RangeIndex = pd.RangeIndex(start=1, stop=len(df)+1, step=1)
+    df.index = index_range
     print(df)
+
+    print("# Locate row data using")
+    print(df.loc[1])
+
+    print("# Locate index list to return Pandas Series")
+    print(df.loc[[2, 3]])
+    
+    print("# Add index date range")
+    date_range: pd.DatetimeIndex = pd.date_range(start="2024-10-14", periods=len(df), freq='D')
+    df.index = date_range
+    print(df)
+
+    print("# Add custom index")
+    custom_index = pd.Index([f'Day{i+1}' for i in range(len(df))])
+    df.index = custom_index
+    print(df)
+
 
 if __name__ == "__main__":
     main()
