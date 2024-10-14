@@ -6,3 +6,5 @@ Tutorial/.venv/
 poetry.lock
 ### Ignore Python Pycache folder
 __Pycache__/
+### Ignore Json Data
+data.json
