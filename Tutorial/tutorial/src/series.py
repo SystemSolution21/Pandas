@@ -1,26 +1,31 @@
 import os
 import pandas as pd
 
-def main():        
+def main() -> None:        
     
-    # Pandas Series
-    print("-----Pandas Series-----")
-    ser_lst: list = [1, 3, 2]
-    df = pd.Series(ser_lst)
-    print(df)
+    print("#Create Pandas Series")
+    list_series: list[int] = [1, 3, 2]
+    ds: pd.Series = pd.Series(list_series)
+    print(ds)
 
-    print("# Create Labels for Series using index= argument")
-    ser_lbl: list = ["x", "y", "z"]
-    ser_lst_lbl = pd.Series(ser_lst, index = ser_lbl)
-    print(ser_lst_lbl)
-    print(ser_lst_lbl["y"])
+    print("#Add index labels")
+    index_label: list[str] = ["x", "y", "z"]
+    ds: pd.Series = pd.Series(list_series, index = index_label)
+    print(ds)
+    print("# 'Y' index data")
+    print(ds["y"])
 
-    print("# Pandas Series Dictionary")
-    calories = pd.Series({"day1": 420, "day2": 380, "day3": 390,})
-    print(calories)
+    print("#Create Pandas Series using Dictionary")
+    dict_data: dict[str, int] = {"day1": 420,
+                                  "day2": 380,
+                                    "day3": 390,}
+    dict_series: pd.Series = pd.Series(dict_data)
+    print(dict_series)
 
-    print("# Create Series using index= argument to specify the desire items")
-    print(pd.Series(calories, index=["day2", "day3"]))
+    print("#Create new Series using specific index list of items")
+    new_ps: pd.Series = pd.Series(dict_series, index=["day2", "day3"])
+    print(new_ps)
 
-if __name__ == "__name__":
-    main()
+
+if __name__ == "__main__":
+    main() 
