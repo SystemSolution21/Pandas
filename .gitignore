@@ -8,3 +8,5 @@ poetry.lock
 __Pycache__/
 ### Ignore Json Data
 data.json
+### Ignore csv data
+clean.csv
