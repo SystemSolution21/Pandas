@@ -1,35 +1,36 @@
 import os
 import pandas as pd
 
-#Read csv data file
-path: str = os.path.dirname(__file__)
-file: str = os.path.join(path, "..", "data", "clean.csv")
+print("#Read csv data file")
+dir_name: str = os.path.dirname(__file__)
+file: str = os.path.join(dir_name, "..", "data", "clean.csv")
 df: pd.DataFrame = pd.read_csv(file)
+print(df.to_string())
 
-#Cleaning Nan/Null data
+print("#Cleaning Nan/Null data")
 #Note: df.dropna(inplace=True) will permanently remove data from original DataFrame
-clean_na_df = df.dropna()
+clean_na_df: pd.DataFrame = df.dropna()
 print(clean_na_df.to_string())
 
-#Fill data to specific Column
-fill_na_df = df.copy()
-fill_na_df["Calories"].fillna(130, inplace = True)
+print("#Fill data to specific Column")
+fill_na_df: pd.DataFrame = df.copy()
+fill_na_df.fillna({"Calories": 130}, inplace=True)
 print(fill_na_df.to_string())
 
-#Fill data using mean()
+print("#Fill data using mean()")
 fill_na_df = df.copy()
-mean_calories = fill_na_df["Calories"].mean()
-fill_na_df["Calories"].fillna(mean_calories, inplace = True)
+mean_calories: float = fill_na_df["Calories"].mean()
+fill_na_df.fillna({"Calories": mean_calories}, inplace = True)
 print(fill_na_df.to_string())
 
-#Fill data using median()
+print("#Fill data using median()")
 fill_na_df = df.copy()
 median_calories = fill_na_df["Calories"].median()
-fill_na_df["Calories"].fillna(median_calories, inplace = True)
+fill_na_df.fillna({"Calories": median_calories}, inplace = True)
 print(fill_na_df.to_string())
 
-#Fill data using mode()
+print("#Fill data using mode()")
 fill_na_df = df.copy()
 mode_calories = fill_na_df["Calories"].mode()[0]
-fill_na_df["Calories"].fillna(mode_calories, inplace = True)
+fill_na_df.fillna({"Calories": mode_calories}, inplace = True)
 print(fill_na_df.to_string())
