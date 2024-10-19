@@ -10,3 +10,7 @@ print(df.to_string())
 #Cleaning wrong data format 
 df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
 print(df.to_string())
+
+#Remove NaT value Date row
+df.dropna(subset="Date", inplace=True)
+print(df.to_string()) 
