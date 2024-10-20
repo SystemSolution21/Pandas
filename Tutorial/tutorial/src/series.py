@@ -1,5 +1,9 @@
+from ctypes import Array
 import os
+import random
+from tracemalloc import start
 import pandas as pd
+import numpy as np
 
 def main() -> None:        
     
@@ -25,6 +29,11 @@ def main() -> None:
     print("#Create new Series using specific index list of items")
     new_ps: pd.Series = pd.Series(dict_series, index=["day2", "day3"])
     print(new_ps)
+
+    print("#Create new Series using numpy")
+    np_rand_arry  = np.random.rand(10)
+    ps: pd.Series = pd.Series(np_rand_arry)
+    print(ps)
 
 
 if __name__ == "__main__":
