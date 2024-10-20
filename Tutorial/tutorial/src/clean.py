@@ -1,11 +1,14 @@
 import os
+from numpy import float64
 import pandas as pd
 
 print("#Read csv data file")
 dir_name: str = os.path.dirname(__file__)
 file: str = os.path.join(dir_name, "..", "data", "clean.csv")
-df: pd.DataFrame = pd.read_csv(file)
-print(df.to_string())
+df: pd.DataFrame = pd.read_csv(file, header=0, sep=",")
+print(df.to_string()) #Show all data
+print(df.info()) #Data catagories information
+print(df.describe()) #Describe data statistics
 
 print("#Cleaning Nan/Null data")
 #Note: df.dropna(inplace=True) will permanently remove data from original DataFrame
@@ -25,12 +28,18 @@ print(fill_na_df.to_string())
 
 print("#Fill data using median()")
 fill_na_df = df.copy()
-median_calories = fill_na_df["Calories"].median()
+median_calories: float = fill_na_df["Calories"].median()
 fill_na_df.fillna({"Calories": median_calories}, inplace = True)
 print(fill_na_df.to_string())
 
 print("#Fill data using mode()")
 fill_na_df = df.copy()
-mode_calories = fill_na_df["Calories"].mode()[0]
+mode_calories: float = fill_na_df["Calories"].mode()[0]
 fill_na_df.fillna({"Calories": mode_calories}, inplace = True)
 print(fill_na_df.to_string())
+
+print("#Convert type int64 ot float64 for Data Preparation")
+print(df.info())
+df["Pulse"] = df["Pulse"].astype(float64)
+df["Maxpulse"] = df["Maxpulse"].astype(float64)
+print(df.info())
