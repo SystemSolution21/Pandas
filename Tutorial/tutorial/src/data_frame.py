@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import numpy as np
 
 def main():        
 
@@ -31,6 +32,10 @@ def main():
     df.index = custom_index
     print(df)
 
+    print("# Create Panda DataFrame using numpy")
+    df = pd.DataFrame(np.random.rand(10, 4), columns=["A", "B", "C", "D"])
+    print(df)
 
+    
 if __name__ == "__main__":
     main()

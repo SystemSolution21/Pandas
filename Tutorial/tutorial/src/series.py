@@ -28,7 +28,7 @@ def main() -> None:
     print(new_ps)
 
     print("#Create new Series using numpy")
-    np_rand_arry  = np.random.rand(10)
+    np_rand_arry: np.ndarray  = np.random.rand(10)
     ps: pd.Series = pd.Series(np_rand_arry)
     print(ps)
 
